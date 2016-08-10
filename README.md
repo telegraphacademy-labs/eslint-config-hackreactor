@@ -17,7 +17,7 @@ npm install -g eslint
 
 Install the Hack Reactor style guide configuration:
 ```
-npm install -g hackreactor-labs/eslint-config-hackreactor
+npm install -g reactorcore/eslint-config-hackreactor
 ```
 
 ## Enforce the style guide in a project
@@ -45,7 +45,7 @@ eslint someFile.js someOtherFile.js
 eslint client/**
 ```
 
-If you don't see any output, your files have passed all the linting rules. In addition to the command line interface, ESLint can be integrated into various [build systems](http://eslint.org/docs/user-guide/integrations#build-systems) like [Gulp](https://github.com/adametry/gulp-eslint), [Grunt](https://www.npmjs.com/package/grunt-eslint), or a [pre-commit hook](https://github.com/hackreactor-labs/pomander).
+If you don't see any output, your files have passed all the linting rules. In addition to the command line interface, ESLint can be integrated into various [build systems](http://eslint.org/docs/user-guide/integrations#build-systems) like [Gulp](https://github.com/adametry/gulp-eslint), [Grunt](https://www.npmjs.com/package/grunt-eslint), or a [pre-commit hook](https://github.com/reactorcore/pomander).
 
 ## Enforce the style guide in Sublime Text
 

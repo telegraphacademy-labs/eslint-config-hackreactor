@@ -24,7 +24,7 @@ module.exports = {
     /* Language constructs */
     'curly': 2,
     'eqeqeq': [2, 'smart'],
-    'func-style': [2, 'expression'],
+    'func-style': [1, 'expression'],
     /* Semicolons */
     'semi': 2,
     'no-extra-semi': 2,

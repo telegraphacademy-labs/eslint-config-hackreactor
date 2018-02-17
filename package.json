@@ -20,7 +20,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hackreactor-labs/eslint-config-hackreactor/issues"
+    "url": "https://github.com/reactorcore/eslint-config-hackreactor/issues"
   },
-  "homepage": "https://github.com/hackreactor-labs/eslint-config-hackreactor#readme"
+  "homepage": "https://github.com/reactorcore/eslint-config-hackreactor#readme"
 }

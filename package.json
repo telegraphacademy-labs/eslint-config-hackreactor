@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hackreactor-labs/eslint-config-hackreactor.git"
+    "url": "git+https://github.com/reactorcore/eslint-config-hackreactor.git"
   },
   "keywords": [
     "eslint",

@@ -1,65 +1,77 @@
 # Enforcing Hack Reactor's Style Guide
 
-This is an installable  [ESLint](http://eslint.org/) configuration file that enforces Hack Reactor's style guide.
+This is an installable ESLint configuration file that enforces Hack Reactor's style guide.
 
-ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs. It's an invaluable tool when working with other engineers.
+[ESLint](http://eslint.org/) is a tool for identifying and reporting on patterns found in JavaScript code, with the goal of making code more consistent and avoiding bugs. It's an invaluable tool when working with other engineers.
 
-Already have ESLint set up in your project? [Skip below](#extend-your-configuration)
+## System Requirements
 
-## Set up ESLint in a new project
+A working version of [Node.js](https://nodejs.org/en/)
 
-Install ESLint:
+## Installation
+
+Install ESLint globally by running the following command in your terminal:
 ```
 npm install -g eslint
 ```
 
+Install the Hack Reactor style guide configuration:
+```
+npm install -g reactorcore/eslint-config-hackreactor
+```
+
+## Enforce the style guide in a project
+
 Create an `.eslintrc.js` file in the root directory of your repository:
 
 ```js
-// .eslintrc.js
 module.exports = {
+  extends: 'hackreactor',
   rules: {
-    // ESLint rules go here
+    // Rules here will override the 'hackreactor' configuration
     // http://eslint.org/docs/rules/
   }
 };
 ```
 
-We'll refer to this file agnostically as `.eslintrc` from here on because this configuration file can exist in [several formats](http://eslint.org/docs/user-guide/configuring#configuration-file-formats). Using the `.js` format gives you all the power of JavaScript in your configuration.
-
-Now you can run ESLint on any JavaScript file:
-```
-eslint test.js test2.js
-```
-If you don't see any output, your files have passed all the linting rules. In addition to the command line interface, ESLint can easily be bundled into a build system like [Gulp](https://github.com/adametry/gulp-eslint) or [Grunt](https://www.npmjs.com/package/grunt-eslint).
-
-Learn more about ESLint's configuration options and details [here](http://eslint.org/docs/user-guide/configuring).
-
-## Extend your configuration
-
-Install the Hack Reactor style guide configuration:
+Now, you can run ESLint from [the command line](http://eslint.org/docs/user-guide/command-line-interface):
 
 ```
-npm install hackreactor-labs/eslint-config-hackreactor
+eslint [options] [file|dir|glob]*
+```
+For example:
+```
+eslint someFile.js someOtherFile.js
+eslint client/**
 ```
 
-Include it in the `extends` section of your `.eslintrc` file:
+If you don't see any output, your files have passed all the linting rules. In addition to the command line interface, ESLint can be integrated into various [build systems](http://eslint.org/docs/user-guide/integrations#build-systems) like [Gulp](https://github.com/adametry/gulp-eslint), [Grunt](https://www.npmjs.com/package/grunt-eslint), or a [pre-commit hook](https://github.com/reactorcore/pomander).
 
-```js
-// .eslintrc.js
-module.exports = {
-  extends: 'eslint-config-hackreactor',
-  rules: {
-    // Adding rules here will override the 'hackreactor' configuration
-    'eqeqeq': 1
-  }
-}
-```
+## Enforce the style guide in Sublime Text
 
-You can also omit the `eslint-config-` and it will be automatically assumed by ESLint:
-```js
-// .eslintrc.js
-module.exports = {
-  extends: 'hackreactor'
+By downloading and configuring a couple of plugins for Sublime Text, you can receive live feedback about your code's syntax and style, much like spelling errors in a word document. This is a very useful practice to build muscle memory around good style habits.
+
+### Install SublimeLinter
+The easiest way to download plugins for Sublime Text is through [Package Control](https://packagecontrol.io/installation). With Package Control, you can install [SublimeLinter](http://www.sublimelinter.com/) and its [ESLint plugin](https://github.com/roadhump/SublimeLinter-eslint) from the Command Palette (`cmd + shift + p`):
+
+* `Package Control: Install Package -> SublimeLinter`
+* `Package Control: Install Package -> SublimeLinter-contrib-eslint`
+
+### Configure SublimeLinter
+
+Without any configuration, SublimeLinter will only enforce rules from a `.eslintrc` file. If no `.eslintrc` file exists among the open files, SublimeLinter will fall back to the default behavior the `eslint` command, and only enforce syntax errors.
+
+You can configure SublimeLinter to enforce the Hack Reactor style guide on files/projects without an `.eslintrc` file.
+
+Navigate to `Preferences -> Package Settings -> SublimeLinter -> Settings - User` and update the `linters` section to the following:
+
+```json
+"eslint": {
+  "@disable": false,
+  "args": [
+    "--config",
+    "hackreactor"
+  ],
+  "excludes": []
 }
 ```
